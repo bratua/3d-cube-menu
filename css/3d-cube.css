@@ -1,0 +1,103 @@
+body {
+   background-color: #000000;
+   color: #ffffff;
+   margin: 0;
+}
+
+.wrapper {
+   margin-top: 300px;
+   perspective: 1000px;
+   perspective-origin: 50% 50%;
+   border-top: solid 3px #cccccc;
+   border-bottom: solid 3px #cccccc;
+
+   background-image: linear-gradient(
+      135deg#ccc 25%,
+      #ddd 50%,
+      #ccc 50%,
+      #ccc 75%,
+      #ddd 75%,
+      #ddd 100%
+   );
+   background-size: 80px 80px;
+
+   animation: bg-animation 3s linear 2s infinite;
+}
+
+@keyframes bg-animation {
+   from {
+      background-position: 0;
+   }
+   to {
+      background-position: 80px;
+   }
+}
+
+.cube3d {
+   margin: auto;
+   position: relative;
+   width: 200px;
+   height: 200px;
+   transform-style: preserve-3d;
+}
+
+.cube3d div {
+   position: absolute;
+   padding: 10px;
+   box-sizing: border-box;
+   height: 100%;
+   width: 100%;
+   opacity: 1;
+   background-color: #000000;
+   border: solid 1px #ffffff;
+   font: 12px veranda;
+   text-align: center;
+   transition: transform 0.2s ease-in;
+}
+
+.cube3d div:hover {
+   background-color: red;
+}
+
+.front {
+   transform: translateZ(0px) rotateY(0deg);
+   transform-origin: top left;
+}
+
+.back {
+   transform: translateZ(100px) rotateY(0deg);
+   transform-origin: right top;
+}
+
+.right {
+   transform: rotateY(-270deg) translateX(100px);
+   transform-origin: top right;
+}
+
+.left {
+   transform: rotateY(270deg) translateX(-100px);
+   transform-origin: center left;
+}
+
+.top {
+   transform: rotateX(-270deg) translateY(-100px);
+   transform-origin: top center;
+}
+
+.bottom {
+   transform: rotateX(270deg) translateY(100px);
+   transform-origin: bottom center;
+}
+
+.cube3d {
+   animation: rotate3d 20s infinite linear;
+}
+
+@keyframes rotate3d {
+   from {
+      transform: rotateX(0deg) rotateY(0deg);
+   }
+   to {
+      transform: rotateX(360deg) rotateY(360deg);
+   }
+}
